@@ -284,8 +284,8 @@ CREATE TABLE zone_permissions (
 ### Development Tools
 
 1. **Development Environment**
-   - Visual Studio Code or Android Studio
-   - Git for version control
+   - Visual Studio Code / Windsurf / Cursor
+   - Github for version control
    - Docker for containerization
 
 2. **Testing Tools**
