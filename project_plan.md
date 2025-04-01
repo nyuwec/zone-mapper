@@ -6,13 +6,13 @@ Zone Mapper is a web application that allows users to create, edit, label, and m
 
 ## Technology Stack
 
-- **Frontend**: Flutter Web
-- **Backend**: Node.js with Express
+- **Frontend**: React
+- **Backend**: Next.js
 - **Database**: PostgreSQL
 - **Maps Integration**: Google Maps API
 - **Authentication**: Firebase Authentication
-- **State Management**: Provider/Riverpod
-- **API Communication**: REST APIs
+- **State Management**: React Context API / Redux Toolkit
+- **API Communication**: Next.js API Routes / REST APIs
 
 ## Features
 
@@ -57,50 +57,59 @@ Zone Mapper is a web application that allows users to create, edit, label, and m
 
 ## System Architecture
 
-### Frontend Architecture
+### Frontend Architecture (React)
 
 ```
-zones_mapper_frontend/
-├── lib/
-│   ├── main.dart                  # Application entry point
-│   ├── config/                    # App configuration (API keys, endpoints)
-│   ├── models/                    # Data models for zones and metadata
-│   ├── screens/                   # Application screens/pages
-│   │   ├── auth/                  # Login/Register screens
-│   │   ├── map/                   # Map editing screen
-│   │   ├── catalog/               # Zone catalog management 
-│   │   └── settings/              # User settings
-│   ├── widgets/                   # Reusable UI components
-│   │   ├── map_widgets/           # Map-specific widgets
-│   │   ├── zone_widgets/          # Zone-specific widgets
-│   │   └── common/                # Common UI elements
-│   ├── services/                  # API services
-│   │   ├── auth_service.dart      # Authentication service
-│   │   ├── zone_service.dart      # Zone CRUD operations
-│   │   └── map_service.dart       # Google Maps service
-│   ├── utils/                     # Utility functions
-│   └── state/                     # State management
-```
-
-### Backend Architecture
-
-```
-zones_mapper_backend/
+zone-mapper/
 ├── src/
-│   ├── server.js                  # Server entry point
-│   ├── config/                    # Server configuration
-│   ├── controllers/               # Request handlers
-│   │   ├── zone_controller.js     # Zone CRUD operations
-│   │   ├── auth_controller.js     # User authentication
-│   │   └── import_export.js       # Import/export functionality
-│   ├── models/                    # Database models
-│   │   ├── zone.js                # Zone model
-│   │   └── user.js                # User model
-│   ├── routes/                    # API routes
-│   ├── middleware/                # Custom middleware
-│   └── utils/                     # Utility functions
-├── migrations/                    # Database migrations
-└── tests/                         # Backend tests
+│   ├── app/                         # Next.js app directory
+│   │   ├── layout.tsx               # Root layout component
+│   │   ├── page.tsx                 # Homepage component
+│   │   ├── auth/                    # Authentication pages
+│   │   ├── map/                     # Map editing pages
+│   │   ├── catalog/                 # Zone catalog pages
+│   │   └── settings/                # User settings pages
+│   ├── components/                  # Reusable UI components
+│   │   ├── map/                     # Map-specific components
+│   │   ├── zones/                   # Zone-specific components
+│   │   ├── ui/                      # Common UI elements
+│   │   └── layout/                  # Layout components
+│   ├── lib/                         # Utility libraries
+│   │   ├── auth.ts                  # Authentication utilities
+│   │   └── maps.ts                  # Google Maps utilities
+│   ├── hooks/                       # Custom React hooks
+│   ├── context/                     # React context providers
+│   ├── types/                       # TypeScript type definitions
+│   └── utils/                       # Utility functions
+├── public/                          # Static assets
+└── styles/                          # CSS/SCSS styles
+```
+
+### Backend Architecture (Next.js)
+
+```
+zone-mapper/
+├── app/
+│   └── api/                        # Next.js API Routes directory
+│       ├── auth/                    # Authentication API routes
+│       │   └── firebase/             # Firebase Authentication routes
+│       ├── zones/                   # Zone management API routes
+│       │   ├── route.ts             # Zone listing endpoint
+│       │   ├── [id]/                # Zone-specific endpoints
+│       │   └── import-export/       # Import/export endpoints
+│       └── users/                   # User management API routes
+├── lib/
+│   ├── prisma/                     # Prisma ORM setup
+│   │   ├── schema.prisma           # Database schema
+│   │   └── client.ts               # Prisma client instance
+│   ├── firebase-auth.ts            # Firebase Authentication utilities
+│   ├── db/                         # Database utilities
+│   │   ├── zones.ts                # Zone database operations
+│   │   └── users.ts                # User database operations
+│   └── utils/                      # Utility functions
+├── middleware.ts                   # Next.js middleware
+└── prisma/                         # Prisma migrations
+    └── migrations/                 # Database migrations
 ```
 
 ### Database Schema
