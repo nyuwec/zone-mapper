@@ -212,8 +212,8 @@ CREATE TABLE zone_permissions (
 ### Phase 1: Setup and Infrastructure (Week 1-2)
 
 1. **Project Setup**
-   - Initialize Flutter web project
-   - Set up Node.js backend with Express
+   - Initialize Next.js project with React
+   - Configure Next.js API routes for backend functionality
    - Configure PostgreSQL database with PostGIS extension
    - Set up development environments
    - Configure CI/CD pipeline
@@ -227,7 +227,7 @@ CREATE TABLE zone_permissions (
 ### Phase 2: Core Map Functionality (Week 3-4)
 
 1. **Google Maps Integration**
-   - Integrate Google Maps API with Flutter
+   - Integrate Google Maps API with React
    - Implement basic map controls
    - Add zone drawing tools
    - Implement zone editing capabilities
@@ -298,14 +298,15 @@ CREATE TABLE zone_permissions (
    - Docker for containerization
 
 2. **Testing Tools**
-   - Flutter testing framework
+   - React Testing Library / Jest for frontend testing
    - Jest for backend testing
    - Postman for API testing
+   - Cypress for end-to-end testing
 
 ## Challenges and Considerations
 
 1. **Technical Challenges**
-   - Ensuring smooth performance of map drawing operations in Flutter Web
+   - Ensuring smooth performance of map drawing operations in React
    - Handling large polygon datasets efficiently
    - Implementing real-time collaboration features
 
